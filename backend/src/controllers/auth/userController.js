@@ -92,7 +92,7 @@ export const  LoginUser = asyncHandler(async (req, res) => {
     //if user does not exists
     if(!userExists){
         //404 not found
-        return res.status(404).json({message: "User does not exists , sighn Up"});
+        return res.status(404).json({message: "User does not exists , please Register"});
     }
         //check if password is correct (is password matches with the hashed password in db)
         const isMatch = await bycrypt.compare(password, userExists.password);

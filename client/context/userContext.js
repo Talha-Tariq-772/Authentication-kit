@@ -39,7 +39,7 @@ export const UserContextProvider = ({ children }) => {
       //pushing user to login page 
       router.push('/login');
     } catch (error) {
-      console.log("Registration error:", error);
+      //console.log("Registration error:", error);
       toast.error(error.response?.data?.message || "Registration failed");
     }
   };
@@ -64,7 +64,7 @@ const loginUser = async (e) => {
     router.push('/');
 
   } catch (error) {
-    console.error("Login error:", error);
+    //console.error("Login error:", error);
           toast.error(error.response?.data?.message || "Login failed");
   } finally {
     setLoading(false);
@@ -120,7 +120,7 @@ const loginUser = async (e) => {
 
       
     } catch (error) {
-      console.log("Login error:", error);
+     // console.log("Login error:", error);
       toast.error(error.response?.data?.message || " Please LoggIn In");
     }
   
@@ -160,7 +160,7 @@ const getUser = async () => {
           setUser(prev => ({ ...prev, ...res.data }));
           toast.success("Profile updated!");
         } catch (error) {
-          console.error("Update error:", error);
+         // console.error("Update error:", error);
           toast.error(error.response?.data?.message || "Update failed");
         } finally {
           setLoading(false); // Add this finally block
@@ -176,7 +176,7 @@ const getUser = async () => {
       });
       toast.success("Emial Sent successfully!");
     } catch (error) {
-      console.error("Email Verification error:", error);
+      //console.error("Email Verification error:", error);
       toast.error(error.response?.data?.message || "Email Verification failed");
     } finally {
       setLoading(false); // Add this finally block
@@ -204,7 +204,7 @@ const getUser = async () => {
       //refresh the home page 
       getUser();
     } catch (error) {
-      console.error("Verification error:", error);
+      //console.error("Verification error:", error);
       toast.error(error.response?.data?.message || "Verification failed");
     } finally {
       setLoading(false);
@@ -232,11 +232,12 @@ const getUser = async () => {
       );
 
       toast.success("Forgot password email sent Successfully!"); 
-
+// redirect to login page
+      router.push('/login')
     ;
   
   }catch (error) {
-    console.error("Email sent Error:", error);
+    //console.error("Email sent Error:", error);
     toast.error(error.response?.data?.message || "Email can't be sent");
   } finally {
     setLoading(false);
@@ -271,7 +272,7 @@ const getUser = async () => {
     ;
   
   }catch (error) {
-    console.error("Password reset Error:", error);
+    //console.error("Password reset Error:", error);
     toast.error(error.response?.data?.message || "Password can't be reset");
   } finally {
     setLoading(false);
@@ -307,7 +308,7 @@ const getUser = async () => {
     ;
   
   }catch (error) {
-    console.error("Password change Error:", error);
+    //console.error("Password change Error:", error);
     toast.error(error.response?.data?.message || "Password can't be changed");
   } finally {
     setLoading(false);
@@ -374,8 +375,8 @@ const getUser = async () => {
 
       toast.success(" Users Deleted Successfully!"); 
 
-      // redirect to home page 
-      // router.push('/');
+       //redirect to home page 
+      router.push('/');
 
     ;
   
